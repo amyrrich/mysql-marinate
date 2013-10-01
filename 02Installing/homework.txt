@@ -3,18 +3,36 @@ Homework for Chapter 2 of Learning MySQL (2006 edition), from p. 94:
 Exercises:
 1) What is command completion?
 
+When using the CLI, one can hit tab to complete the existing file, directory, or command name if it is unique.  If it is not unique, tab will complete the point where the text diverges.
+
 2) What are the relative advantages of installing MySQL using the package,
  directory archive (tarball or "no-install"), or compiled methods?
 
+packages - dependencies are clearly defined and managed by the package manager.
+tarball - useful for OSes with no package managers or if you want to want to choose a different install location
+compiled - useful if you want to modify compile time options
+
+Unless one wants to change compile time options or has no package manager for which packages are already available, using the packages is always the preferred method of installation (from a system administration point of view).
+
 3) How do you verify the integrity of downloaded packages?
 
+Use md5/md5sum to generate cryptographic hashes of the downloaded files and compare them to those listed at the site you're downloading them from.  Package management databases will already have checksums built in and will warn you if the hashes do not mash.
+
 4) How do you add the MySQL bin directory to the operating system path?
+
+Modify the rc files of the account you wish to modify the path for and/or change the skeleton files to all new accounts also start with the modified path.
 
 Additional Exercises (not in the book): 
 1) Document how you installed MySQL and any issues you came across with installation. 
  (The goal is to be easy to install it again on a similar machine.)
 
+yum install mysql-server mysql.x86_64 MySQL-python
+
 2) Document where important files should be.
+
+rpm -ql mysql-server
+rpm -ql mysql
+rpm -ql MySQL-python
 
 Do not forget to do a pull request when your homework is complete.
 http://www.meetup.com/Virtual-Tech-Self-Study/messages/boards/thread/29963152/
